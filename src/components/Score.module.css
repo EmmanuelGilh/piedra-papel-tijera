@@ -1,0 +1,14 @@
+.score_points {
+    position: relative;
+}
+
+.points {
+    font-size: 60px;
+    margin: 0px;
+    margin-top: 50px;
+}
+
+.marcador {
+    font-size: small;
+    margin: 0px;
+}

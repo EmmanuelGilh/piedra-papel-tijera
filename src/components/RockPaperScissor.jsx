@@ -11,15 +11,24 @@ function RockPaperScissor() {
     const [yourPoints, setYourPoints] = useState(0)
     const [pcPoints, setPcPoints] = useState(0)
     const [result, setResult] = useState()
-    const [show, setShow] = useState(false)
 
 
+    //timeout para limpiar el resultado
+    useEffect(() => {
+        if (result) {
+            setTimeout(() => {
+                setResult()
+                setPcChoice('')
+                setYourChoice('')
+            }, 2000);
+        }
+    }, [result])
 
     return (
         <div>
             <Header />
             <Score yourPoints={yourPoints} pcPoints={pcPoints} yourChoice={yourChoice} pcChoice={pcChoice} setResult={setResult} setYourPoints={setYourPoints} setPcPoints={setPcPoints} />
-            <Hands yourChoice={yourChoice} pcChoice={pcChoice} setYourChoice={setYourChoice} setPcChoice={setPcChoice} />
+            <Hands yourChoice={yourChoice} pcChoice={pcChoice} setYourChoice={setYourChoice} setPcChoice={setPcChoice} result={result} />
             <Results result={result} />
         </div>
     )
